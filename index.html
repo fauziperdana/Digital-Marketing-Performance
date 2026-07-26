@@ -1,356 +1,546 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pitch Deck - Muhammad Fauzi Perdana</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'pure-white': '#FFFFFF',
+                        'neon-yellow': '#FFE600',
+                        'hot-pink': '#FF007A',
+                        'accent-gold': '#D4AF37',
+                        'dark-charcoal': '#111111',
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px #111111',
+                        'brutal-sm': '4px 4px 0px 0px #111111',
+                        'brutal-gold': '8px 8px 0px 0px #D4AF37',
+                        'brutal-pink': '8px 8px 0px 0px #FF007A',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #111111;
-        }
-        .neo-card {
-            border: 4px solid #111111;
-            box-shadow: 8px 8px 0px #111111;
-        }
-        .neo-card-sm {
-            border: 3px solid #111111;
-            box-shadow: 4px 4px 0px #111111;
-        }
-        .neo-btn {
-            border: 3px solid #111111;
-            box-shadow: 4px 4px 0px #111111;
-            transition: all 0.1s ease;
-        }
-        .neo-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #111111;
+            background-color: #FFFFFF;
+            color: #111111;
+            overflow: hidden; /* Prevent scrolling, act like a presentation */
         }
         .slide {
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: all 0.4s ease-in-out;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
         .slide.active {
-            display: flex;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+        .slide-inner {
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            /* Hide scrollbar for a cleaner look */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .slide-inner::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
         }
     </style>
 </head>
-<body class="h-screen w-screen overflow-hidden flex flex-col justify-between p-4 md:p-8 bg-neutral-900">
+<body class="font-sans antialiased text-dark-charcoal selection:bg-neon-yellow selection:text-dark-charcoal">
 
-    <!-- Container Utama Slide -->
-    <main class="flex-1 w-full max-w-7xl mx-auto relative flex items-center justify-center">
+    <!-- Navigation Overlay -->
+    <div class="fixed top-0 left-0 w-full p-4 md:p-6 flex justify-between items-center z-50 pointer-events-none">
+        <div class="font-bold text-xl tracking-tighter bg-pure-white border-2 border-dark-charcoal px-4 py-2 rounded-xl shadow-brutal-sm pointer-events-auto">
+            MFP <span class="text-hot-pink">.</span>
+        </div>
+        <div class="flex gap-2 pointer-events-auto">
+            <button onclick="prevSlide()" class="bg-pure-white border-2 border-dark-charcoal hover:bg-neon-yellow px-4 py-2 rounded-xl shadow-brutal-sm transition-colors font-bold flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div id="slideCounter" class="bg-pure-white border-2 border-dark-charcoal px-4 py-2 rounded-xl shadow-brutal-sm font-bold flex items-center justify-center min-w-[80px]">
+                1 / 10
+            </div>
+            <button onclick="nextSlide()" class="bg-pure-white border-2 border-dark-charcoal hover:bg-neon-yellow px-4 py-2 rounded-xl shadow-brutal-sm transition-colors font-bold flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Presentation Container -->
+    <div id="presentation" class="relative w-full h-screen">
 
         <!-- SLIDE 1: Cover -->
-        <section class="slide active w-full h-full bg-white rounded-3xl neo-card p-8 md:p-12 flex-col justify-center items-center text-center">
-            <span class="inline-block bg-[#FFE600] text-black font-extrabold px-6 py-2 rounded-xl neo-card-sm mb-6 text-sm md:text-base uppercase tracking-wider">
-                Performance Marketing Strategist
-            </span>
-            <h1 class="text-4xl md:text-6xl font-black text-[#111111] leading-tight uppercase mb-6 max-w-5xl">
-                META ADS & PERFORMANCE MARKETING PORTFOLIO
-            </h1>
-            <p class="text-lg md:text-2xl font-bold text-neutral-800 max-w-3xl mb-10 leading-relaxed">
-                Driving Revenue & High-Converting Leads via Meta Ads, High-Trust Video Creatives & SMO
-            </p>
-            <div class="bg-[#FF007A] text-white px-8 py-4 rounded-2xl neo-card text-xl md:text-2xl font-black">
-                Muhammad Fauzi Perdana
+        <div class="slide active" id="slide-1">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 md:p-16 flex flex-col justify-center text-center">
+                <div class="inline-block mx-auto mb-6 bg-neon-yellow px-6 py-2 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm font-bold text-xl uppercase tracking-widest">
+                    Portfolio
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8">
+                    META ADS <br>
+                    <span class="text-pure-white" style="text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111, 0px 4px 0px #111;">& PERFORMANCE MARKETING</span>
+                </h1>
+                <p class="text-lg md:text-2xl font-semibold max-w-3xl mx-auto mb-12 text-dark-charcoal leading-relaxed bg-hot-pink text-pure-white p-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm">
+                    Driving Revenue & High-Converting Leads via Meta Ads, High-Trust Video Creatives & SMO
+                </p>
+                <div class="mt-auto pt-8 border-t-4 border-dark-charcoal border-dashed">
+                    <p class="text-xl md:text-2xl font-bold uppercase tracking-wide">
+                        Muhammad Fauzi Perdana
+                    </p>
+                    <p class="text-lg md:text-xl font-semibold mt-2 text-hot-pink">
+                        Performance Marketing Strategist
+                    </p>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- SLIDE 2: About Me & Background (DENGAN FOTO & 2 DESKRIPSI) -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase border-b-8 border-[#FF007A] pb-3 inline-block mb-6">
-                    About Me & Background
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <!-- SLIDE 2: Core Capabilities -->
+        <div class="slide" id="slide-2">
+            <div class="slide-inner">
+                <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-10 mb-6 shadow-brutal">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase">Core Capabilities</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-8 flex flex-col">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-dark-charcoal pb-4">Paid Acquisition</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Meta Ads Setup</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Campaign Architecture</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Sales Funneling</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Budget Scaling</li>
+                        </ul>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-hot-pink border-4 border-dark-charcoal rounded-2xl shadow-brutal-sm md:translate-y-4 p-6 md:p-8 flex flex-col text-pure-white">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-pure-white pb-4">High-Trust Ad Creatives</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 text-neon-yellow font-black">*</span> Real Human Video Creatives</li>
+                            <li class="flex items-start"><span class="mr-2 text-neon-yellow font-black">*</span> High-CTR Graphic Static Ads</li>
+                        </ul>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-8 flex flex-col">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-dark-charcoal pb-4 text-hot-pink">AI Creative & SMO</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> AI Visual Tools for Instagram Feed</li>
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> Social Proof Building</li>
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> Paid-Organic Synergy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Key Track Record -->
+        <div class="slide" id="slide-3">
+            <div class="slide-inner">
+                <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase text-hot-pink">Key Track Record</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- Metric 1 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-dark-charcoal mb-4">>Rp 250 JUTA+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-neon-yellow px-4 py-2 border-2 border-dark-charcoal inline-block">Total Ad Spend Managed</p>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div class="bg-dark-charcoal border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-neon-yellow mb-4">>36,000+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-pure-white text-dark-charcoal px-4 py-2 border-2 border-dark-charcoal inline-block">High-Intent Leads Generated</p>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div class="bg-hot-pink border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center text-pure-white">
+                        <h3 class="text-4xl md:text-5xl font-black mb-4">>30+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-dark-charcoal px-4 py-2 border-2 border-pure-white inline-block">Brands & Projects Scaled</p>
+                    </div>
+                    <!-- Metric 4 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-dark-charcoal mb-4">>Rp 30 MILIAR+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-pure-white px-4 py-2 border-2 border-dark-charcoal inline-block text-hot-pink">Estimated Gross Revenue Delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Case Study 1 -->
+        <div class="slide" id="slide-4">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-neon-yellow text-dark-charcoal font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 1</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">High-Ticket Property & Real Estate</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Coverage</h4>
+                            <p class="text-xl font-bold">Landed Houses (Fatmawati, Meruya, Depok, Cibinong) & BUMN Apartment.</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">Real Progress Video Footage vs 3D Rendering A/B Testing, Custom Qualifying Forms, Radius Targeting.</p>
+                        </div>
+                    </div>
                     
-                    <!-- Frame Foto Diri -->
-                    <div class="md:col-span-4 flex justify-center">
-                        <div class="w-full max-w-[280px] md:max-w-none h-72 md:h-96 rounded-2xl neo-card overflow-hidden bg-[#FFE600] flex items-center justify-center">
-                            <img src="./fauzi-profile.jpg" alt="Muhammad Fauzi Perdana" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500/FFE600/111111?text=fauzi-profile.jpg';">
+                    <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-black uppercase text-neon-yellow mb-6 border-b-2 border-neon-yellow pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Total Leads</span>
+                                >36,000 Qualified Leads
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Average Real CPL</span>
+                                Rp 26.000 / Lead
+                            </li>
+                            <li class="bg-neon-yellow text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Delivered Revenue</span>
+                                >Rp 30 Miliar+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Case Study 2 -->
+        <div class="slide" id="slide-5">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-hot-pink text-pure-white font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 2</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">D2C Skincare & Beauty</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">Category</h4>
+                            <p class="text-xl font-bold">Local Skincare Brand (Shopee Traffic)</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">Strategy</h4>
+                            <p class="text-xl font-bold">Real Human UGC Video Ads, Strategic Banners, Retargeting Campaigns.</p>
                         </div>
                     </div>
+                    
+                    <div class="bg-neon-yellow text-dark-charcoal border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-sm">
+                        <h4 class="text-2xl font-black uppercase text-dark-charcoal mb-6 border-b-4 border-dark-charcoal pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Daily Scale</span>
+                                ~Rp 3,000,000 / Day
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Cost Per Result</span>
+                                Rp 500 / Product Page Visit
+                            </li>
+                            <li class="bg-hot-pink text-pure-white font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-neon-yellow">Revenue Lift</span>
+                                +120% Sales Lift
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <!-- 2 Poin Deskripsi Utama -->
-                    <div class="md:col-span-8 space-y-4">
-                        <div class="bg-[#FF007A] text-white px-6 py-2 rounded-xl neo-card-sm font-black text-lg md:text-xl inline-block">
-                            MUHAMMAD FAUZI PERDANA
+        <!-- SLIDE 6: Case Study 3 -->
+        <div class="slide" id="slide-6">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-accent-gold text-dark-charcoal font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 3</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">Healthcare & Medical Equipment</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-accent-gold mb-2">Category</h4>
+                            <p class="text-xl font-bold">Orthopedic Braces & Medical Equipment (0-to-1 Brand Launch)</p>
                         </div>
-
-                        <!-- Card 1: Growth Strategist (Pengalaman 4+ Tahun) -->
-                        <div class="bg-[#FFE600] p-5 rounded-2xl neo-card">
-                            <h3 class="text-xl md:text-2xl font-black text-[#111111] mb-2 uppercase">
-                                DIGITAL MARKETING & GROWTH STRATEGIST
-                            </h3>
-                            <p class="text-base md:text-lg font-bold text-[#111111] leading-relaxed">
-                                Praktisi Digital Marketing Performance yang berpengalaman lebih dari 4 tahun dalam mengelola ad spend skala besar dan mendongkrak revenue terukur lintas industri (Property, Beauty/D2C, Edutech, Healthcare, B2B).
-                            </p>
-                        </div>
-
-                        <!-- Card 2: Industry Practitioner & Educator -->
-                        <div class="bg-white p-5 rounded-2xl neo-card">
-                            <h3 class="text-xl md:text-2xl font-black text-[#111111] mb-2 uppercase">
-                                INDUSTRY PRACTITIONER & EDUCATOR
-                            </h3>
-                            <p class="text-base md:text-lg font-bold text-[#111111] leading-relaxed">
-                                Pengajar Praktisi di CSEL Universitas Indonesia, menguasai Consultative Selling, Meta Ads Campaign Architecture, Sales Funnel Optimization, serta integrasi AI Visual Tools untuk efisiensi eksekusi creative ads.
-                            </p>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-accent-gold mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">Brand awareness from scratch using educational demonstration videos & Meta Ads.</p>
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">02 / 11</div>
-        </section>
-
-        <!-- SLIDE 3: Core Capabilities -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase border-b-8 border-[#FFE600] pb-3 inline-block mb-8">
-                    Core Capabilities
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-[#FFE600] p-6 rounded-2xl neo-card">
-                        <h3 class="text-2xl font-black text-[#111111] mb-4">PAID AD ACQUISITION</h3>
-                        <p class="text-lg font-bold text-[#111111]">Meta Ads Setup, Campaign Architecture, Sales Funneling, Budget Scaling.</p>
-                    </div>
-                    <div class="bg-[#FF007A] p-6 rounded-2xl neo-card text-white">
-                        <h3 class="text-2xl font-black text-[#FFE600] mb-4">DIGITAL MARKETING STRATEGIC</h3>
-                        <p class="text-lg font-bold">Digital Marketing Funnel, Market Analysis.</p>
-                    </div>
-                    <div class="bg-[#FFE600] p-6 rounded-2xl neo-card">
-                        <h3 class="text-2xl font-black text-[#111111] mb-4">AI CREATIVE & Social Media Optimization</h3>
-                        <p class="text-lg font-bold text-[#111111]">AI Visual Tools for Instagram Feed, Social Proof Building, Paid-Organic Synergy.</p>
+                    
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-gold">
+                        <h4 class="text-2xl font-black uppercase text-dark-charcoal mb-6 border-b-4 border-accent-gold pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-dark-charcoal text-pure-white font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-accent-gold">First Month Sales</span>
+                                >Rp 7,000,000+
+                            </li>
+                            <li class="bg-dark-charcoal text-pure-white font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-accent-gold">Cost Per Result</span>
+                                Rp 4.540 / Inquiry
+                            </li>
+                            <li class="bg-accent-gold text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Outcome</span>
+                                Successful 0-to-1 Launch
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">03 / 11</div>
-        </section>
+        </div>
 
-        <!-- SLIDE 4: Key Track Record -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase border-b-8 border-[#D4AF37] pb-3 inline-block mb-8">
-                    Key Track Record
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-2xl neo-card text-center">
-                        <span class="text-4xl md:text-6xl font-black text-[#FF007A] block mb-2">&gt;Rp 250 JUTA+</span>
-                        <span class="text-lg md:text-xl font-bold uppercase">Total Ad Spend Managed</span>
+        <!-- SLIDE 7: Case Study 4 -->
+        <div class="slide" id="slide-7">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-dark-charcoal text-pure-white font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 4</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">Edutech & Career Accelerator</h2>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl neo-card text-center">
-                        <span class="text-4xl md:text-6xl font-black text-[#FF007A] block mb-2">&gt;36,000+</span>
-                        <span class="text-lg md:text-xl font-bold uppercase">High-Intent Leads Generated</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Category</h4>
+                            <p class="text-xl font-bold">Edutech Bootcamp & Professional Training</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">High-converting Landing Page Funneling, AI-boosted Feed Content, Webinar Meta Ads.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl neo-card text-center">
-                        <span class="text-4xl md:text-6xl font-black text-[#D4AF37] block mb-2">&gt;30+</span>
-                        <span class="text-lg md:text-xl font-bold uppercase">Brands & Projects Scaled</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl neo-card text-center">
-                        <span class="text-4xl md:text-6xl font-black text-[#D4AF37] block mb-2">&gt;Rp 30 MILIAR+</span>
-                        <span class="text-lg md:text-xl font-bold uppercase">Estimated Gross Revenue Delivered</span>
+                    
+                    <div class="bg-hot-pink text-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-sm">
+                        <h4 class="text-2xl font-black uppercase mb-6 border-b-4 border-pure-white pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Student Leads</span>
+                                >1,000+ Leads
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Average CPR</span>
+                                Rp 12.000 / Lead
+                            </li>
+                            <li class="bg-neon-yellow text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Growth</span>
+                                >250+ Target Followers/Month
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">04 / 11</div>
-        </section>
+        </div>
 
-        <!-- SLIDE 5: Case Study 1 -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-2xl md:text-4xl font-black text-[#111111] uppercase border-b-8 border-[#FF007A] pb-2 inline-block mb-4">
-                    Case Study 1: Property & Real Estate
-                </h2>
-                <div class="space-y-3 mb-6">
-                    <p class="text-lg font-bold"><span class="bg-[#FFE600] px-2 py-1 rounded neo-card-sm">Coverage:</span> Landed Houses (Fatmawati, Meruya, Depok, Cibinong) & BUMN Apartment.</p>
-                    <p class="text-lg font-bold"><span class="bg-[#FFE600] px-2 py-1 rounded neo-card-sm">Strategy:</span> Real Progress Video Footage vs 3D Rendering A/B Testing, Custom Qualifying Forms, Radius Targeting.</p>
+        <!-- SLIDE 8: Multi-Industry Track Record -->
+        <div class="slide" id="slide-8">
+            <div class="slide-inner">
+                <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase text-dark-charcoal">Multi-Industry Track Record</h2>
                 </div>
-                <div class="flex flex-wrap gap-4 mt-8 justify-center">
-                    <div class="bg-[#FFE600] p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Total Leads: &gt;36,000 Qualified Leads</div>
-                    <div class="bg-[#FFE600] p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Average Real CPL: Rp 26.000 / Lead</div>
-                    <div class="bg-[#D4AF37] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Delivered Revenue: &gt;Rp 30 Miliar+</div>
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">05 / 11</div>
-        </section>
-
-        <!-- SLIDE 6: Case Study 2 -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-2xl md:text-4xl font-black text-[#111111] uppercase border-b-8 border-[#FFE600] pb-2 inline-block mb-4">
-                    Case Study 2: D2C Skincare & Beauty
-                </h2>
-                <div class="space-y-3 mb-6">
-                    <p class="text-lg font-bold"><span class="bg-[#FF007A] text-white px-2 py-1 rounded neo-card-sm">Category:</span> Local Skincare Brand (Shopee Traffic)</p>
-                    <p class="text-lg font-bold"><span class="bg-[#FF007A] text-white px-2 py-1 rounded neo-card-sm">Strategy:</span> Real Human UGC Video Ads, Strategic Banners, Retargeting Campaigns.</p>
-                </div>
-                <div class="flex flex-wrap gap-4 mt-8 justify-center">
-                    <div class="bg-[#FF007A] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Daily Scale: ~Rp 3,000,000 / Day</div>
-                    <div class="bg-[#FF007A] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Cost Per Result: Rp 500 / Product Page Visit</div>
-                    <div class="bg-[#D4AF37] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Revenue Lift: +120% Sales Lift</div>
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">06 / 11</div>
-        </section>
-
-        <!-- SLIDE 7: Case Study 3 -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-2xl md:text-4xl font-black text-[#111111] uppercase border-b-8 border-[#D4AF37] pb-2 inline-block mb-4">
-                    Case Study 3: Healthcare & Medical Equip.
-                </h2>
-                <div class="space-y-3 mb-6">
-                    <p class="text-lg font-bold"><span class="bg-[#FFE600] px-2 py-1 rounded neo-card-sm">Category:</span> Orthopedic Braces & Medical Equipment (0-to-1 Brand Launch)</p>
-                    <p class="text-lg font-bold"><span class="bg-[#FFE600] px-2 py-1 rounded neo-card-sm">Strategy:</span> Brand awareness from scratch using educational demonstration videos & Meta Ads.</p>
-                </div>
-                <div class="flex flex-wrap gap-4 mt-8 justify-center">
-                    <div class="bg-[#FFE600] p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">First Month Sales: &gt;Rp 7,000,000+</div>
-                    <div class="bg-[#FFE600] p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Cost Per Result: Rp 4.540 / Inquiry</div>
-                    <div class="bg-[#D4AF37] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Outcome: Successful 0-to-1 Launch</div>
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">07 / 11</div>
-        </section>
-
-        <!-- SLIDE 8: Case Study 4 -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-2xl md:text-4xl font-black text-[#111111] uppercase border-b-8 border-[#FF007A] pb-2 inline-block mb-4">
-                    Case Study 4: Edutech & Career Accelerator
-                </h2>
-                <div class="space-y-3 mb-6">
-                    <p class="text-lg font-bold"><span class="bg-[#FF007A] text-white px-2 py-1 rounded neo-card-sm">Category:</span> Edutech Bootcamp & Professional Training</p>
-                    <p class="text-lg font-bold"><span class="bg-[#FF007A] text-white px-2 py-1 rounded neo-card-sm">Strategy:</span> High-converting Landing Page Funneling, AI-boosted Feed Content, Webinar Meta Ads.</p>
-                </div>
-                <div class="flex flex-wrap gap-4 mt-8 justify-center">
-                    <div class="bg-[#FF007A] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Student Leads: &gt;1,000+ Leads</div>
-                    <div class="bg-[#FF007A] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Average CPR: Rp 12.000 / Lead</div>
-                    <div class="bg-[#D4AF37] text-white p-4 rounded-xl neo-card text-center font-black text-lg md:text-xl">Growth: &gt;250+ Target Followers/Month</div>
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">08 / 11</div>
-        </section>
-
-        <!-- SLIDE 9: Multi-Industry Track Record -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase border-b-8 border-[#FFE600] pb-3 inline-block mb-8">
-                    Multi-Industry Track Record
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">Property & Real Estate</div>
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">Healthcare & Medical Equipment</div>
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">Beauty & D2C E-commerce</div>
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">Edutech & Professional Training</div>
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">IT Developers & Custom Software</div>
-                    <div class="bg-white p-5 rounded-2xl neo-card font-black text-xl">Niche B2B (Wedding Organizers & Livestock)</div>
-                </div>
-            </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">09 / 11</div>
-        </section>
-
-        <!-- SLIDE 10: Proven Working Framework -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase border-b-8 border-[#FF007A] pb-3 inline-block mb-6">
-                    Proven Working Framework
-                </h2>
-                <div class="space-y-3">
-                    <div class="bg-white p-4 rounded-xl neo-card flex items-center gap-4">
-                        <span class="bg-[#FFE600] px-4 py-2 rounded-lg neo-card-sm font-black text-xl">1</span>
-                        <span class="font-bold text-lg"><strong>AUDIT & RESEARCH:</strong> Market profiling and Meta Ad Library competitor analysis</span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Box 1 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Property & Real Estate</p>
                     </div>
-                    <div class="bg-white p-4 rounded-xl neo-card flex items-center gap-4">
-                        <span class="bg-[#FFE600] px-4 py-2 rounded-lg neo-card-sm font-black text-xl">2</span>
-                        <span class="font-bold text-lg"><strong>CREATIVE PRODUCTION:</strong> Real human video/static design for Ads, AI for Feed</span>
+                    <!-- Box 2 -->
+                    <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Healthcare & Medical Equipment</p>
                     </div>
-                    <div class="bg-white p-4 rounded-xl neo-card flex items-center gap-4">
-                        <span class="bg-[#FFE600] px-4 py-2 rounded-lg neo-card-sm font-black text-xl">3</span>
-                        <span class="font-bold text-lg"><strong>EXECUTION:</strong> A/B testing ad sets, budget allocation, campaign setup</span>
+                    <!-- Box 3 -->
+                    <div class="bg-hot-pink text-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Beauty & D2C E-commerce</p>
                     </div>
-                    <div class="bg-white p-4 rounded-xl neo-card flex items-center gap-4">
-                        <span class="bg-[#FFE600] px-4 py-2 rounded-lg neo-card-sm font-black text-xl">4</span>
-                        <span class="font-bold text-lg"><strong>DAILY OPTIMIZATION:</strong> Scaling profit ad sets, cost minimization</span>
+                    <!-- Box 4 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase text-accent-gold">Edutech & Professional Training</p>
                     </div>
-                    <div class="bg-white p-4 rounded-xl neo-card flex items-center gap-4">
-                        <span class="bg-[#FFE600] px-4 py-2 rounded-lg neo-card-sm font-black text-xl">5</span>
-                        <span class="font-bold text-lg"><strong>REPORTING:</strong> ROI focus, revenue analysis, scaling strategy</span>
+                    <!-- Box 5 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">IT Developers & Custom Software</p>
+                    </div>
+                    <!-- Box 6 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase text-hot-pink">Niche B2B (Wedding Organizers & Livestock)</p>
                     </div>
                 </div>
             </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">10 / 11</div>
-        </section>
+        </div>
 
-        <!-- SLIDE 11: Call to Action -->
-        <section class="slide w-full h-full bg-white rounded-3xl neo-card p-6 md:p-10 flex-col justify-between text-center">
-            <div class="flex flex-col items-center justify-center h-full my-auto">
-                <h2 class="text-3xl md:text-5xl font-black text-[#111111] uppercase mb-6">
-                    Let's Scale Your Revenue With Data-Driven Meta Ads
+        <!-- SLIDE 9: Proven Working Framework -->
+        <div class="slide" id="slide-9">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal text-center mb-10 border-b-4 border-dark-charcoal pb-4">Proven Working Framework</h2>
+                
+                <div class="flex flex-col gap-4">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-dark-charcoal text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 1</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">AUDIT & RESEARCH</h4>
+                            <p class="text-lg font-bold">Market profiling and Meta Ad Library competitor analysis</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-hot-pink text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 2</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-dark-charcoal mb-2">CREATIVE PRODUCTION</h4>
+                            <p class="text-lg font-bold">Real human video/static design for Ads, AI for Feed</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-accent-gold text-dark-charcoal p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 3</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-dark-charcoal mb-2">EXECUTION</h4>
+                            <p class="text-lg font-bold">A/B testing ad sets, budget allocation, campaign setup</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-neon-yellow text-dark-charcoal p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 4</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-hot-pink mb-2">DAILY OPTIMIZATION</h4>
+                            <p class="text-lg font-bold">Scaling profit ad sets, cost minimization</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-dark-charcoal text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 5</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">REPORTING</h4>
+                            <p class="text-lg font-bold">ROI focus, revenue analysis, scaling strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Call to Action & Contact -->
+        <div class="slide" id="slide-10">
+            <div class="slide-inner flex flex-col items-center text-center max-w-4xl">
+                
+                <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8 text-dark-charcoal">
+                    Let's Scale Your Revenue with Data-Driven <span class="text-pure-white bg-dark-charcoal px-2">Meta Ads</span>
                 </h2>
-                <div class="bg-[#FFE600] border-8 border-[#D4AF37] p-6 md:p-8 rounded-3xl neo-card mb-8 max-w-3xl">
-                    <span class="text-2xl md:text-4xl font-black text-[#111111] block uppercase">
+
+                <div class="bg-neon-yellow border-4 border-accent-gold rounded-2xl p-8 md:p-12 w-full mb-12 shadow-brutal-gold transform transition-transform hover:scale-[1.02]">
+                    <h3 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal leading-tight">
                         FREE 30-MINUTE AD ACCOUNT AUDIT & STRATEGY SESSION
-                    </span>
+                    </h3>
                 </div>
-                <div class="text-xl font-black mb-4">Muhammad Fauzi Perdana | Performance Marketing Strategist</div>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <span class="bg-[#FFE600] px-4 py-2 rounded-xl neo-card-sm font-bold">WhatsApp: [Your Number]</span>
-                    <span class="bg-[#FFE600] px-4 py-2 rounded-xl neo-card-sm font-bold">Email: [Your Email]</span>
-                    <span class="bg-[#FFE600] px-4 py-2 rounded-xl neo-card-sm font-bold">LinkedIn: [Your Link]</span>
+
+                <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 w-full shadow-brutal-sm">
+                    <p class="text-2xl md:text-3xl font-black uppercase tracking-wide border-b-4 border-dark-charcoal pb-4 mb-6">
+                        Muhammad Fauzi Perdana
+                    </p>
+                    <p class="text-xl md:text-2xl font-bold text-hot-pink mb-8 uppercase">
+                        Performance Marketing Strategist
+                    </p>
+
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                        <!-- Placeholders for Contact -->
+                        <a href="#" class="w-full md:w-auto bg-dark-charcoal text-pure-white font-bold text-lg px-8 py-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            WhatsApp Me on 08888732232
+                        </a>
+                        <a href="#" class="w-full md:w-auto bg-pure-white text-dark-charcoal font-bold text-lg px-8 py-4 rounded-xl border-4 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            Email Me at fauziperdana@gmail.com
+                        </a>
+                        <a href="#" class="w-full md:w-auto bg-hot-pink text-pure-white font-bold text-lg px-8 py-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            LinkedIn - Muhammad Fauzi Perdana
+                        </a>
+                    </div>
                 </div>
+
             </div>
-            <div class="text-right text-sm font-extrabold text-neutral-400">11 / 11</div>
-        </section>
+        </div>
 
-    </main>
+    </div>
 
-    <!-- Navigation Control Bar -->
-    <footer class="w-full max-w-7xl mx-auto mt-4 flex justify-between items-center bg-white p-3 md:p-4 rounded-2xl neo-card">
-        <button id="prevBtn" onclick="changeSlide(-1)" class="bg-[#FFE600] text-black font-black px-6 py-2 rounded-xl neo-btn uppercase text-sm md:text-base">
-            &larr; Prev
-        </button>
-        <span id="slideIndicator" class="font-black text-black text-sm md:text-base">
-            Slide 1 of 11
-        </span>
-        <button id="nextBtn" onclick="changeSlide(1)" class="bg-[#FF007A] text-white font-black px-6 py-2 rounded-xl neo-btn uppercase text-sm md:text-base">
-            Next &rarr;
-        </button>
-    </footer>
-
-    <!-- Script Navigasi Interaktif -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicator = document.getElementById('slideIndicator');
+        let currentSlide = 1;
+        const totalSlides = 10;
+        const counterElement = document.getElementById('slideCounter');
 
-        function updateSlides() {
-            slides.forEach((slide, index) => {
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
+        function updateSlideClasses() {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
             });
-            indicator.innerText = `Slide ${currentSlide + 1} of ${slides.length}`;
+            
+            // Show current slide
+            const activeSlide = document.getElementById(`slide-${currentSlide}`);
+            if (activeSlide) {
+                activeSlide.classList.add('active');
+            }
+
+            // Update Counter
+            counterElement.textContent = `${currentSlide} / ${totalSlides}`;
         }
 
-        function changeSlide(direction) {
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = 0;
-            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
-            updateSlides();
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideClasses();
+            }
         }
 
-        // Keyboard Arrow Controls
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'Space') {
-                changeSlide(1);
-            } else if (e.key === 'ArrowLeft') {
-                changeSlide(-1);
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlideClasses();
+            }
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
             }
         });
+
+        // Initialize first slide
+        updateSlideClasses();
     </script>
 </body>
 </html>
