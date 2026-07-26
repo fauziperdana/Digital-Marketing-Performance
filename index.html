@@ -80,7 +80,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <div id="slideCounter" class="bg-pure-white border-2 border-dark-charcoal px-4 py-2 rounded-xl shadow-brutal-sm font-bold flex items-center justify-center min-w-[80px]">
-                1 / 10
+                1 / 11
             </div>
             <button onclick="nextSlide()" class="bg-pure-white border-2 border-dark-charcoal hover:bg-neon-yellow px-4 py-2 rounded-xl shadow-brutal-sm transition-colors font-bold flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -115,8 +115,55 @@
             </div>
         </div>
 
-        <!-- SLIDE 2: Core Capabilities -->
+        <!-- SLIDE 2: About Me (NEW) -->
         <div class="slide" id="slide-2">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-neon-yellow text-dark-charcoal font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Introduction</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">About Me</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Photo Container -->
+                    <div class="lg:col-span-5 flex flex-col items-center">
+                        <div class="relative w-full max-w-[320px] aspect-square bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-3 shadow-brutal">
+                            <img src="fauzi-profile.jpg" 
+                                 alt="Muhammad Fauzi Perdana" 
+                                 class="w-full h-full object-cover rounded-xl border-2 border-dark-charcoal transition-all duration-300">
+                            <div class="absolute -bottom-4 -right-4 bg-hot-pink text-pure-white font-black text-sm uppercase px-4 py-2 border-2 border-dark-charcoal rounded-xl shadow-brutal-sm">
+                                Growth Strategist
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio & Highlights -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h3 class="text-2xl font-black uppercase text-hot-pink mb-3">Hi, I'm Muhammad Fauzi Perdana</h3>
+                            <p class="text-lg font-bold text-dark-charcoal leading-relaxed">
+                                A dedicated Performance Marketing Strategist specializing in scaling digital acquisition for brands through Meta Ads, conversion-focused copywriting, and authentic high-trust video creative directions.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-xl p-5 shadow-brutal-sm">
+                                <h4 class="text-lg font-black uppercase border-b-2 border-dark-charcoal pb-2 mb-2">Data-Driven Approach</h4>
+                                <p class="text-sm font-bold">Focusing on ROAS, Low Cost-Per-Lead (CPL), and sustainable business profitability.</p>
+                            </div>
+                            <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-xl p-5 shadow-brutal-sm">
+                                <h4 class="text-lg font-black uppercase text-neon-yellow border-b-2 border-neon-yellow pb-2 mb-2">Creative Direction</h4>
+                                <p class="text-sm font-bold">Crafting high-trust UGC & static creatives optimized specifically for Meta algorithms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Core Capabilities -->
+        <div class="slide" id="slide-3">
             <div class="slide-inner">
                 <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-10 mb-6 shadow-brutal">
                     <h2 class="text-3xl md:text-5xl font-black uppercase">Core Capabilities</h2>
@@ -154,8 +201,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: Key Track Record -->
-        <div class="slide" id="slide-3">
+        <!-- SLIDE 4: Key Track Record -->
+        <div class="slide" id="slide-4">
             <div class="slide-inner">
                 <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
                     <h2 class="text-4xl md:text-5xl font-black uppercase text-hot-pink">Key Track Record</h2>
@@ -186,8 +233,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 4: Case Study 1 -->
-        <div class="slide" id="slide-4">
+        <!-- SLIDE 5: Case Study 1 -->
+        <div class="slide" id="slide-5">
             <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
                     <div>
@@ -229,8 +276,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 5: Case Study 2 -->
-        <div class="slide" id="slide-5">
+        <!-- SLIDE 6: Case Study 2 -->
+        <div class="slide" id="slide-6">
             <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
                     <div>
@@ -272,8 +319,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 6: Case Study 3 -->
-        <div class="slide" id="slide-6">
+        <!-- SLIDE 7: Case Study 3 -->
+        <div class="slide" id="slide-7">
             <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
                     <div>
@@ -315,8 +362,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 7: Case Study 4 -->
-        <div class="slide" id="slide-7">
+        <!-- SLIDE 8: Case Study 4 -->
+        <div class="slide" id="slide-8">
             <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
                     <div>
@@ -358,8 +405,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 8: Multi-Industry Track Record -->
-        <div class="slide" id="slide-8">
+        <!-- SLIDE 9: Multi-Industry Track Record -->
+        <div class="slide" id="slide-9">
             <div class="slide-inner">
                 <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
                     <h2 class="text-4xl md:text-5xl font-black uppercase text-dark-charcoal">Multi-Industry Track Record</h2>
@@ -394,8 +441,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 9: Proven Working Framework -->
-        <div class="slide" id="slide-9">
+        <!-- SLIDE 10: Proven Working Framework -->
+        <div class="slide" id="slide-10">
             <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
                 <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal text-center mb-10 border-b-4 border-dark-charcoal pb-4">Proven Working Framework</h2>
                 
@@ -454,8 +501,8 @@
             </div>
         </div>
 
-        <!-- SLIDE 10: Call to Action & Contact -->
-        <div class="slide" id="slide-10">
+        <!-- SLIDE 11: Call to Action & Contact -->
+        <div class="slide" id="slide-11">
             <div class="slide-inner flex flex-col items-center text-center max-w-4xl">
                 
                 <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8 text-dark-charcoal">
@@ -497,7 +544,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 10;
+        const totalSlides = 11;
         const counterElement = document.getElementById('slideCounter');
 
         function updateSlideClasses() {
