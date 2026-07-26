@@ -1,110 +1,121 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pitch Deck - Muhammad Fauzi Perdana</title>
-<style>
-@page { 
-    size: A4 landscape; 
-    margin: 12mm; 
-    background-color: #FFFFFF; 
-}
-*, *::before, *::after { box-sizing: border-box; }
-body { 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-    color: #111111; 
-    margin: 0; 
-    padding: 0; 
-    background-color: #FFFFFF; 
-    line-height: 1.4; 
-}
-
-/* Base Slide Container */
-.slide { 
-    page-break-inside: avoid; 
-    height: 180mm; 
-    border: 5px solid #111111; 
-    border-radius: 24px; 
-    box-shadow: 12px 12px 0px #111111; 
-    padding: 15mm; 
-    margin-bottom: 25mm;
-    background-color: #FFFFFF;
-    position: relative;
-}
-
-/* Typography */
-h1 { font-size: 38pt; font-weight: 900; line-height: 1.15; margin: 0 0 15px 0; text-transform: uppercase; }
-h2 { font-size: 24pt; font-weight: 900; margin: 0 0 20px 0; text-transform: uppercase; border-bottom: 6px solid #111111; display: inline-block; padding-bottom: 5px; }
-h3 { font-size: 16pt; font-weight: 900; margin: 0 0 8px 0; text-transform: uppercase; }
-p { font-size: 13pt; font-weight: bold; margin: 0 0 12px 0; color: #111111; }
-
-/* Grid System via Table */
-.grid { display: table; width: 100%; table-layout: fixed; }
-.col { display: table-cell; vertical-align: middle; padding: 0 10px; }
-.col:first-child { padding-left: 0; }
-.col:last-child { padding-right: 0; }
-
-/* Profile Layout Grid */
-.profile-grid { display: table; width: 100%; table-layout: fixed; margin-top: 5mm; }
-.profile-col-img { display: table-cell; width: 32%; vertical-align: top; padding-right: 20px; }
-.profile-col-desc { display: table-cell; width: 68%; vertical-align: top; }
-
-/* Profile Image Box */
-.profile-img-container { 
-    border: 5px solid #111111; 
-    border-radius: 20px; 
-    box-shadow: 8px 8px 0px #111111; 
-    overflow: hidden; 
-    background-color: #FFE600; 
-    text-align: center;
-    height: 125mm;
-}
-.profile-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-}
-
-/* Card Components */
-.card { border: 4px solid #111111; border-radius: 16px; padding: 15px; box-shadow: 6px 6px 0px #111111; margin-bottom: 15px; }
-.card-yellow { background-color: #FFE600; }
-.card-pink { background-color: #FF007A; color: #FFFFFF; }
-.card-gold { background-color: #D4AF37; }
-.card-white { background-color: #FFFFFF; }
-
-/* Metrics */
-.metric-number { font-size: 32pt; font-weight: 900; color: #FF007A; display: block; margin-bottom: 5px; }
-.metric-label { font-size: 14pt; font-weight: bold; text-transform: uppercase; }
-
-/* Badges */
-.badge { display: inline-block; border: 3px solid #111111; border-radius: 10px; padding: 10px 18px; font-size: 13pt; font-weight: 900; margin: 0 8px 8px 0; box-shadow: 4px 4px 0px #111111; }
-.badge-yellow { background-color: #FFE600; }
-.badge-gold { background-color: #D4AF37; }
-.badge-pink { background-color: #FF007A; color: #FFFFFF; }
-.badge-white { background-color: #FFFFFF; }
-
-/* Framework Steps */
-.step-box { border: 4px solid #111111; padding: 10px; margin-bottom: 10px; border-radius: 12px; font-weight: bold; font-size: 13pt; display: table; width: 100%; background: #FFFFFF; box-shadow: 4px 4px 0px #111111; }
-.step-num { display: table-cell; width: 60px; background: #FFE600; color: #111111; font-size: 18pt; font-weight: 900; text-align: center; vertical-align: middle; border-radius: 8px; border: 2px solid #111111;}
-.step-content { display: table-cell; padding-left: 15px; vertical-align: middle; }
-
-/* CTA Box */
-.cta-box { border: 8px solid #D4AF37; background-color: #FFE600; padding: 25px; text-align: center; border-radius: 24px; box-shadow: 12px 12px 0px #111111; margin-top: 20px; }
-.cta-text { font-size: 26pt; font-weight: 900; text-transform: uppercase; color: #111111; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Deck - Muhammad Fauzi Perdana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'pure-white': '#FFFFFF',
+                        'neon-yellow': '#FFE600',
+                        'hot-pink': '#FF007A',
+                        'accent-gold': '#D4AF37',
+                        'dark-charcoal': '#111111',
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px #111111',
+                        'brutal-sm': '4px 4px 0px 0px #111111',
+                        'brutal-gold': '8px 8px 0px 0px #D4AF37',
+                        'brutal-pink': '8px 8px 0px 0px #FF007A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #111111;
+            overflow: hidden; /* Prevent scrolling, act like a presentation */
+        }
+        .slide {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: all 0.4s ease-in-out;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 10;
+        }
+        .slide-inner {
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            /* Hide scrollbar for a cleaner look */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .slide-inner::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased text-dark-charcoal selection:bg-neon-yellow selection:text-dark-charcoal">
 
-    <!-- Slide 1: Cover -->
-    <div class="slide" style="padding-top: 35mm; text-align: center;">
-        <h1 style="font-size: 44pt; margin-bottom: 20px;">META ADS & PERFORMANCE<br>MARKETING PORTFOLIO</h1>
-        <p style="font-size: 20pt; margin-bottom: 40px; color: #333;">Driving Revenue & High-Converting Leads via Meta Ads,<br>Social Media Optimization & AI Creative Production</p>
-        <div class="badge badge-yellow" style="font-size: 16pt;">Muhammad Fauzi Perdana | Performance Marketing Strategist</div>
+    <!-- Navigation Overlay -->
+    <div class="fixed top-0 left-0 w-full p-4 md:p-6 flex justify-between items-center z-50 pointer-events-none">
+        <div class="font-bold text-xl tracking-tighter bg-pure-white border-2 border-dark-charcoal px-4 py-2 rounded-xl shadow-brutal-sm pointer-events-auto">
+            MFP <span class="text-hot-pink">.</span>
+        </div>
+        <div class="flex gap-2 pointer-events-auto">
+            <button onclick="prevSlide()" class="bg-pure-white border-2 border-dark-charcoal hover:bg-neon-yellow px-4 py-2 rounded-xl shadow-brutal-sm transition-colors font-bold flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div id="slideCounter" class="bg-pure-white border-2 border-dark-charcoal px-4 py-2 rounded-xl shadow-brutal-sm font-bold flex items-center justify-center min-w-[80px]">
+                1 / 10
+            </div>
+            <button onclick="nextSlide()" class="bg-pure-white border-2 border-dark-charcoal hover:bg-neon-yellow px-4 py-2 rounded-xl shadow-brutal-sm transition-colors font-bold flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </div>
     </div>
 
-    <!-- Slide 2: About Me & Background -->
+    <!-- Presentation Container -->
+    <div id="presentation" class="relative w-full h-screen">
+
+        <!-- SLIDE 1: Cover -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 md:p-16 flex flex-col justify-center text-center">
+                <div class="inline-block mx-auto mb-6 bg-neon-yellow px-6 py-2 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm font-bold text-xl uppercase tracking-widest">
+                    Portfolio
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8">
+                    META ADS <br>
+                    <span class="text-pure-white" style="text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111, 0px 4px 0px #111;">& PERFORMANCE MARKETING</span>
+                </h1>
+                <p class="text-lg md:text-2xl font-semibold max-w-3xl mx-auto mb-12 text-dark-charcoal leading-relaxed bg-hot-pink text-pure-white p-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm">
+                    Driving Revenue & High-Converting Leads via Meta Ads, High-Trust Video Creatives & SMO
+                </p>
+                <div class="mt-auto pt-8 border-t-4 border-dark-charcoal border-dashed">
+                    <p class="text-xl md:text-2xl font-bold uppercase tracking-wide">
+                        Muhammad Fauzi Perdana
+                    </p>
+                    <p class="text-lg md:text-xl font-semibold mt-2 text-hot-pink">
+                        Performance Marketing Strategist
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: About Me & Background -->
     <div class="slide">
         <h2>About Me & Background</h2>
         <div class="profile-grid">
@@ -120,7 +131,7 @@ p { font-size: 13pt; font-weight: bold; margin: 0 0 12px 0; color: #111111; }
                 
                 <div class="card card-yellow" style="padding: 18px 20px; margin-bottom: 18px;">
                     <h3>DIGITAL MARKETING & GROWTH STRATEGIST</h3>
-                    <p style="margin-bottom: 0; font-size: 13pt; line-height: 1.5;">Praktisi Digital Marketing Performance yang berpengalaman lebih dari 4 tahun dalam mengelola ad spend skala besar dan mendongkrak revenue terukur lintas industri (Property, Beauty/D2C, Education, Healthcare, B2B).</p>
+                    <p style="margin-bottom: 0; font-size: 13pt; line-height: 1.5;">Praktisi Digital Marketing Performance yang berpengalaman lebih dari 4 tahun dalam mengelola ad spend skala besar dan mendongkrak revenue terukur lintas industri (Property, Beauty/D2C, Edutech, Healthcare, B2B).</p>
                 </div>
 
                 <div class="card card-white" style="padding: 18px 20px; margin-bottom: 0;">
@@ -131,154 +142,432 @@ p { font-size: 13pt; font-weight: bold; margin: 0 0 12px 0; color: #111111; }
         </div>
     </div>
 
-    <!-- Slide 3: Core Capabilities -->
-    <div class="slide">
-        <h2>Core Capabilities</h2>
-        <div class="grid" style="margin-top: 15mm;">
-            <div class="col">
-                <div class="card card-yellow" style="height: 200px;">
-                    <h3>PAID AD ACQUISITION</h3>
-                    <p>Meta Ads Setup, Campaign Architecture, Sales Funneling, Budget Scaling.</p>
+        <!-- SLIDE 3: Core Capabilities -->
+        <div class="slide" id="slide-2">
+            <div class="slide-inner">
+                <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-10 mb-6 shadow-brutal">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase">Core Capabilities</h2>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card card-pink" style="height: 200px;">
-                    <h3 style="color: #FFE600;">MARKETING STRATEGIC</h3>
-                    <p style="color: #FFFFFF;">Marketing Funnel Strategic, Market Analysis.</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-yellow" style="height: 200px;">
-                    <h3>AI CREATIVE & Social Media Optimization</h3>
-                    <p>AI Visual Tools for Instagram Feed, Social Proof Building, Paid-Organic Synergy.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 4: Key Track Record -->
-    <div class="slide">
-        <h2>Key Track Record</h2>
-        <div class="grid" style="margin-bottom: 20px; margin-top: 10mm;">
-            <div class="col">
-                <div class="card card-white" style="text-align:center; padding: 25px;">
-                    <span class="metric-number">&gt;Rp 250 JUTA+</span>
-                    <span class="metric-label">Total Ad Spend Managed</span>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-white" style="text-align:center; padding: 25px;">
-                    <span class="metric-number">&gt;36,000+</span>
-                    <span class="metric-label">High-Intent Leads Generated</span>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-8 flex flex-col">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-dark-charcoal pb-4">Paid Acquisition</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Meta Ads Setup</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Campaign Architecture</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Sales Funneling</li>
+                            <li class="flex items-start"><span class="mr-2 text-hot-pink font-black">*</span> Budget Scaling</li>
+                        </ul>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-hot-pink border-4 border-dark-charcoal rounded-2xl shadow-brutal-sm md:translate-y-4 p-6 md:p-8 flex flex-col text-pure-white">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-pure-white pb-4">High-Trust Ad Creatives</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 text-neon-yellow font-black">*</span> Real Human Video Creatives</li>
+                            <li class="flex items-start"><span class="mr-2 text-neon-yellow font-black">*</span> High-CTR Graphic Static Ads</li>
+                        </ul>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-8 flex flex-col">
+                        <div class="text-3xl font-black mb-4 uppercase border-b-4 border-dark-charcoal pb-4 text-hot-pink">AI Creative & SMO</div>
+                        <ul class="space-y-4 text-lg md:text-xl font-bold">
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> AI Visual Tools for Instagram Feed</li>
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> Social Proof Building</li>
+                            <li class="flex items-start"><span class="mr-2 font-black">*</span> Paid-Organic Synergy</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="grid">
-            <div class="col">
-                <div class="card card-white" style="text-align:center; padding: 25px;">
-                    <span class="metric-number" style="color: #D4AF37;">&gt;30+</span>
-                    <span class="metric-label">Brands & Projects Scaled</span>
+
+        <!-- SLIDE 4: Key Track Record -->
+        <div class="slide" id="slide-3">
+            <div class="slide-inner">
+                <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase text-hot-pink">Key Track Record</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- Metric 1 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-dark-charcoal mb-4">>Rp 250 JUTA+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-neon-yellow px-4 py-2 border-2 border-dark-charcoal inline-block">Total Ad Spend Managed</p>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div class="bg-dark-charcoal border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-neon-yellow mb-4">>36,000+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-pure-white text-dark-charcoal px-4 py-2 border-2 border-dark-charcoal inline-block">High-Intent Leads Generated</p>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div class="bg-hot-pink border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center text-pure-white">
+                        <h3 class="text-4xl md:text-5xl font-black mb-4">>30+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-dark-charcoal px-4 py-2 border-2 border-pure-white inline-block">Brands & Projects Scaled</p>
+                    </div>
+                    <!-- Metric 4 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl shadow-brutal p-8 text-center flex flex-col justify-center items-center">
+                        <h3 class="text-4xl md:text-5xl font-black text-dark-charcoal mb-4">>Rp 30 MILIAR+</h3>
+                        <p class="text-xl md:text-2xl font-bold uppercase bg-pure-white px-4 py-2 border-2 border-dark-charcoal inline-block text-hot-pink">Estimated Gross Revenue Delivered</p>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card card-white" style="text-align:center; padding: 25px;">
-                    <span class="metric-number" style="color: #D4AF37;">&gt;Rp 30 MILIAR+</span>
-                    <span class="metric-label">Est. Gross Revenue Delivered</span>
+        </div>
+
+        <!-- SLIDE 5: Case Study 1 -->
+        <div class="slide" id="slide-4">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-neon-yellow text-dark-charcoal font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 1</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">High-Ticket Property & Real Estate</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Coverage</h4>
+                            <p class="text-xl font-bold">Landed Houses (Fatmawati, Meruya, Depok, Cibinong) & BUMN Apartment.</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">Real Progress Video Footage vs 3D Rendering A/B Testing, Custom Qualifying Forms, Radius Targeting.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-black uppercase text-neon-yellow mb-6 border-b-2 border-neon-yellow pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Total Leads</span>
+                                >36,000 Qualified Leads
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Average Real CPL</span>
+                                Rp 26.000 / Lead
+                            </li>
+                            <li class="bg-neon-yellow text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Delivered Revenue</span>
+                                >Rp 30 Miliar+
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- SLIDE 6: Case Study 2 -->
+        <div class="slide" id="slide-5">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-hot-pink text-pure-white font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 2</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">D2C Skincare & Beauty</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">Category</h4>
+                            <p class="text-xl font-bold">Local Skincare Brand (Shopee Traffic)</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">Strategy</h4>
+                            <p class="text-xl font-bold">Real Human UGC Video Ads, Strategic Banners, Retargeting Campaigns.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-neon-yellow text-dark-charcoal border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-sm">
+                        <h4 class="text-2xl font-black uppercase text-dark-charcoal mb-6 border-b-4 border-dark-charcoal pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Daily Scale</span>
+                                ~Rp 3,000,000 / Day
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Cost Per Result</span>
+                                Rp 500 / Product Page Visit
+                            </li>
+                            <li class="bg-hot-pink text-pure-white font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-neon-yellow">Revenue Lift</span>
+                                +120% Sales Lift
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Case Study 3 -->
+        <div class="slide" id="slide-6">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-accent-gold text-dark-charcoal font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 3</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">Healthcare & Medical Equipment</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-accent-gold mb-2">Category</h4>
+                            <p class="text-xl font-bold">Orthopedic Braces & Medical Equipment (0-to-1 Brand Launch)</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-accent-gold mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">Brand awareness from scratch using educational demonstration videos & Meta Ads.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-gold">
+                        <h4 class="text-2xl font-black uppercase text-dark-charcoal mb-6 border-b-4 border-accent-gold pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-dark-charcoal text-pure-white font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-accent-gold">First Month Sales</span>
+                                >Rp 7,000,000+
+                            </li>
+                            <li class="bg-dark-charcoal text-pure-white font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-accent-gold">Cost Per Result</span>
+                                Rp 4.540 / Inquiry
+                            </li>
+                            <li class="bg-accent-gold text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Outcome</span>
+                                Successful 0-to-1 Launch
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Case Study 4 -->
+        <div class="slide" id="slide-7">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b-4 border-dark-charcoal pb-6">
+                    <div>
+                        <span class="bg-dark-charcoal text-pure-white font-black uppercase px-4 py-1 border-2 border-dark-charcoal mb-4 inline-block text-lg">Case Study 4</span>
+                        <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal">Edutech & Career Accelerator</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Category</h4>
+                            <p class="text-xl font-bold">Edutech Bootcamp & Professional Training</p>
+                        </div>
+                        <div class="bg-pure-white border-4 border-dark-charcoal rounded-xl p-6 shadow-brutal-sm">
+                            <h4 class="text-2xl font-black uppercase text-hot-pink mb-2">Strategy</h4>
+                            <p class="text-xl font-bold">High-converting Landing Page Funneling, AI-boosted Feed Content, Webinar Meta Ads.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-hot-pink text-pure-white border-4 border-dark-charcoal rounded-xl p-6 md:p-8 flex flex-col justify-center shadow-brutal-sm">
+                        <h4 class="text-2xl font-black uppercase mb-6 border-b-4 border-pure-white pb-2">Highlighted Results</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Student Leads</span>
+                                >1,000+ Leads
+                            </li>
+                            <li class="bg-pure-white text-dark-charcoal font-black text-2xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase text-hot-pink">Average CPR</span>
+                                Rp 12.000 / Lead
+                            </li>
+                            <li class="bg-neon-yellow text-dark-charcoal font-black text-3xl p-4 rounded-lg border-2 border-dark-charcoal flex flex-col">
+                                <span class="text-sm uppercase">Growth</span>
+                                >250+ Target Followers/Month
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Multi-Industry Track Record -->
+        <div class="slide" id="slide-8">
+            <div class="slide-inner">
+                <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-6 md:p-8 mb-8 shadow-brutal text-center">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase text-dark-charcoal">Multi-Industry Track Record</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Box 1 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Property & Real Estate</p>
+                    </div>
+                    <!-- Box 2 -->
+                    <div class="bg-dark-charcoal text-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Healthcare & Medical Equipment</p>
+                    </div>
+                    <!-- Box 3 -->
+                    <div class="bg-hot-pink text-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">Beauty & D2C E-commerce</p>
+                    </div>
+                    <!-- Box 4 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase text-accent-gold">Edutech & Professional Training</p>
+                    </div>
+                    <!-- Box 5 -->
+                    <div class="bg-neon-yellow border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase">IT Developers & Custom Software</p>
+                    </div>
+                    <!-- Box 6 -->
+                    <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 flex items-center justify-center text-center shadow-brutal transition-transform hover:-translate-y-2">
+                        <p class="text-2xl font-black uppercase text-hot-pink">Niche B2B (Wedding Organizers & Livestock)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Proven Working Framework -->
+        <div class="slide" id="slide-9">
+            <div class="slide-inner bg-pure-white border-4 border-dark-charcoal rounded-2xl shadow-brutal p-6 md:p-10">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal text-center mb-10 border-b-4 border-dark-charcoal pb-4">Proven Working Framework</h2>
+                
+                <div class="flex flex-col gap-4">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-dark-charcoal text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 1</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">AUDIT & RESEARCH</h4>
+                            <p class="text-lg font-bold">Market profiling and Meta Ad Library competitor analysis</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-hot-pink text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 2</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-dark-charcoal mb-2">CREATIVE PRODUCTION</h4>
+                            <p class="text-lg font-bold">Real human video/static design for Ads, AI for Feed</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-accent-gold text-dark-charcoal p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 3</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-dark-charcoal mb-2">EXECUTION</h4>
+                            <p class="text-lg font-bold">A/B testing ad sets, budget allocation, campaign setup</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-neon-yellow text-dark-charcoal p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 4</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-hot-pink mb-2">DAILY OPTIMIZATION</h4>
+                            <p class="text-lg font-bold">Scaling profit ad sets, cost minimization</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="flex flex-col md:flex-row items-stretch border-4 border-dark-charcoal rounded-xl overflow-hidden shadow-brutal-sm bg-pure-white">
+                        <div class="bg-dark-charcoal text-pure-white p-4 flex items-center justify-center md:w-32 flex-shrink-0">
+                            <span class="text-3xl font-black">STEP 5</span>
+                        </div>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col justify-center">
+                            <h4 class="text-2xl font-black text-neon-yellow mb-2" style="-webkit-text-stroke: 1px black;">REPORTING</h4>
+                            <p class="text-lg font-bold">ROI focus, revenue analysis, scaling strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Call to Action & Contact -->
+        <div class="slide" id="slide-10">
+            <div class="slide-inner flex flex-col items-center text-center max-w-4xl">
+                
+                <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8 text-dark-charcoal">
+                    Let's Scale Your Revenue with Data-Driven <span class="text-pure-white bg-dark-charcoal px-2">Meta Ads</span>
+                </h2>
+
+                <div class="bg-neon-yellow border-4 border-accent-gold rounded-2xl p-8 md:p-12 w-full mb-12 shadow-brutal-gold transform transition-transform hover:scale-[1.02]">
+                    <h3 class="text-3xl md:text-5xl font-black uppercase text-dark-charcoal leading-tight">
+                        FREE 30-MINUTE AD ACCOUNT AUDIT & STRATEGY SESSION
+                    </h3>
+                </div>
+
+                <div class="bg-pure-white border-4 border-dark-charcoal rounded-2xl p-8 w-full shadow-brutal-sm">
+                    <p class="text-2xl md:text-3xl font-black uppercase tracking-wide border-b-4 border-dark-charcoal pb-4 mb-6">
+                        Muhammad Fauzi Perdana
+                    </p>
+                    <p class="text-xl md:text-2xl font-bold text-hot-pink mb-8 uppercase">
+                        Performance Marketing Strategist
+                    </p>
+
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                        <!-- Placeholders for Contact -->
+                        <a href="#" class="w-full md:w-auto bg-dark-charcoal text-pure-white font-bold text-lg px-8 py-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            WhatsApp Me on 08888732232
+                        </a>
+                        <a href="#" class="w-full md:w-auto bg-pure-white text-dark-charcoal font-bold text-lg px-8 py-4 rounded-xl border-4 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            Email Me at fauziperdana@gmail.com
+                        </a>
+                        <a href="#" class="w-full md:w-auto bg-hot-pink text-pure-white font-bold text-lg px-8 py-4 rounded-xl border-2 border-dark-charcoal shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all uppercase flex items-center justify-center gap-2">
+                            LinkedIn - Muhammad Fauzi Perdana
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
-    <!-- Slide 5: Case Study 1 -->
-    <div class="slide">
-        <h2 style="border-bottom-color: #FF007A;">Case Study 1: Property & Real Estate</h2>
-        <p><strong>Coverage:</strong> Landed Houses (Fatmawati, Meruya, Depok, Cibinong) & BUMN Apartment.</p>
-        <p><strong>Strategy:</strong> Real Progress Video Footage vs 3D Rendering A/B Testing, Custom Qualifying Forms, Radius Targeting.</p>
-        <div style="margin-top: 35mm; text-align: center;">
-            <div class="badge badge-yellow">Total Leads: &gt;36,000 Qualified Leads</div>
-            <div class="badge badge-yellow">Average Real CPL: Rp 26.000 / Lead</div>
-            <div class="badge badge-gold">Delivered Revenue: &gt;Rp 30 Miliar+</div>
-        </div>
-    </div>
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+        const counterElement = document.getElementById('slideCounter');
 
-    <!-- Slide 6: Case Study 2 -->
-    <div class="slide">
-        <h2 style="border-bottom-color: #FFE600;">Case Study 2: D2C Skincare & Beauty</h2>
-        <p><strong>Category:</strong> Local Skincare Brand (Shopee Traffic)</p>
-        <p><strong>Strategy:</strong> Real Human UGC Video Ads, Strategic Banners, Retargeting Campaigns.</p>
-        <div style="margin-top: 40mm; text-align: center;">
-            <div class="badge badge-pink">Daily Scale: ~Rp 3,000,000 / Day</div>
-            <div class="badge badge-pink">Cost Per Result: Rp 500 / Product Page Visit</div>
-            <div class="badge badge-gold">Revenue Lift: +120% Sales Lift</div>
-        </div>
-    </div>
+        function updateSlideClasses() {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show current slide
+            const activeSlide = document.getElementById(`slide-${currentSlide}`);
+            if (activeSlide) {
+                activeSlide.classList.add('active');
+            }
 
-    <!-- Slide 7: Case Study 3 -->
-    <div class="slide">
-        <h2 style="border-bottom-color: #D4AF37;">Case Study 3: Healthcare & Medical Equip.</h2>
-        <p><strong>Category:</strong> Orthopedic Braces & Medical Equipment (0-to-1 Brand Launch)</p>
-        <p><strong>Strategy:</strong> Brand awareness from scratch using educational demonstration videos & Meta Ads.</p>
-        <div style="margin-top: 40mm; text-align: center;">
-            <div class="badge badge-yellow">First Month Sales: &gt;Rp 7,000,000+</div>
-            <div class="badge badge-yellow">Cost Per Result: Rp 4.540 / Inquiry</div>
-            <div class="badge badge-gold">Outcome: Successful 0-to-1 Launch</div>
-        </div>
-    </div>
+            // Update Counter
+            counterElement.textContent = `${currentSlide} / ${totalSlides}`;
+        }
 
-    <!-- Slide 8: Case Study 4 -->
-    <div class="slide">
-        <h2 style="border-bottom-color: #FF007A;">Case Study 4: Edutech & Career Accelerator</h2>
-        <p><strong>Category:</strong> Edutech Bootcamp & Professional Training</p>
-        <p><strong>Strategy:</strong> High-converting Landing Page Funneling, AI-boosted Feed Content, Webinar Meta Ads.</p>
-        <div style="margin-top: 40mm; text-align: center;">
-            <div class="badge badge-pink">Student Leads: &gt;1,000+ Leads</div>
-            <div class="badge badge-pink">Average CPR: Rp 12.000 / Lead</div>
-            <div class="badge badge-gold">Growth: &gt;250+ Target Followers/Month</div>
-        </div>
-    </div>
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideClasses();
+            }
+        }
 
-    <!-- Slide 9: Multi-Industry Track Record -->
-    <div class="slide">
-        <h2>Multi-Industry Track Record</h2>
-        <div class="grid" style="margin-bottom: 15px; margin-top: 10mm;">
-            <div class="col"><div class="card card-white"><h3>Property & Real Estate</h3></div></div>
-            <div class="col"><div class="card card-white"><h3>Healthcare & Medical Equipment</h3></div></div>
-        </div>
-        <div class="grid" style="margin-bottom: 15px;">
-            <div class="col"><div class="card card-white"><h3>Beauty & D2C E-commerce</h3></div></div>
-            <div class="col"><div class="card card-white"><h3>Edutech & Professional Training</h3></div></div>
-        </div>
-        <div class="grid">
-            <div class="col"><div class="card card-white"><h3>IT Developers & Custom Software</h3></div></div>
-            <div class="col"><div class="card card-white"><h3>Niche B2B (Wedding Organizers & Livestock)</h3></div></div>
-        </div>
-    </div>
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlideClasses();
+            }
+        }
 
-    <!-- Slide 10: Proven Working Framework -->
-    <div class="slide">
-        <h2>Proven Working Framework</h2>
-        <div style="margin-top: 10mm;">
-            <div class="step-box"><div class="step-num">1</div><div class="step-content"><strong>AUDIT & RESEARCH:</strong> Market profiling and Meta Ad Library competitor analysis</div></div>
-            <div class="step-box"><div class="step-num">2</div><div class="step-content"><strong>CREATIVE PRODUCTION:</strong> Real human video/static design for Ads, AI for Feed</div></div>
-            <div class="step-box"><div class="step-num">3</div><div class="step-content"><strong>EXECUTION:</strong> A/B testing ad sets, budget allocation, campaign setup</div></div>
-            <div class="step-box"><div class="step-num">4</div><div class="step-content"><strong>DAILY OPTIMIZATION:</strong> Scaling profit ad sets, cost minimization</div></div>
-            <div class="step-box"><div class="step-num">5</div><div class="step-content"><strong>REPORTING:</strong> ROI focus, revenue analysis, scaling strategy</div></div>
-        </div>
-    </div>
+        // Keyboard Navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
 
-    <!-- Slide 11: Call to Action -->
-    <div class="slide" style="text-align: center; padding-top: 20mm;">
-        <h1 style="font-size: 32pt;">Let's Scale Your Revenue<br>with Data-Driven Meta Ads</h1>
-        <div class="cta-box">
-            <div class="cta-text">FREE 30-MINUTE AD ACCOUNT<br>AUDIT & STRATEGY SESSION</div>
-        </div>
-        <div style="margin-top: 25mm;">
-            <div class="badge badge-white" style="font-size: 16pt;">Muhammad Fauzi Perdana | Performance Marketing Strategist</div><br>
-            <div class="badge badge-yellow">WhatsApp: [Your Number]</div>
-            <div class="badge badge-yellow">Email: [Your Email]</div>
-            <div class="badge badge-yellow">LinkedIn: [Your Link]</div>
-        </div>
-    </div>
-
+        // Initialize first slide
+        updateSlideClasses();
+    </script>
 </body>
 </html>
